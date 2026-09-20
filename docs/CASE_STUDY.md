@@ -6,7 +6,7 @@
 
 ## 1. Who has this problem
 
-A leader in the first ninety days of a new enterprise role — a provost, a chief information officer, a city department head — and the consultant helping them see the organisation as it is rather than as the org chart describes it. I have been on the consulting side of that engagement in higher education and the public sector; the leader is handed a capability map, a RACI and objectives, all confident and none checkable.
+A new enterprise leader — a provost, a chief information officer, a city department head — and the consultant helping them see the organisation as it is rather than as the org chart describes it. I have been on the consulting side of that engagement in higher education and the public sector; the leader is handed a capability map, a RACI and objectives, all confident and none checkable.
 
 ## 2. The problem, as a scenario
 
