@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Enterprise Operating Model Kit — heat-map, RACI, OKR cascade</title>
+<meta name="description" content="Three operating-model diagnostics for a new enterprise leader: a capability heat-map scored on importance, maturity and target; a RACI chart generated from decision rights and checked; an OKR cascade whose alignment is verified. With a ninety-day playbook. Client-side; sample data.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://freddricklogan.github.io/enterprise-operating-model-kit/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Crect x='6' y='6' width='9' height='9' rx='1.5' fill='%23f85149'/%3E%3Crect x='17' y='6' width='9' height='9' rx='1.5' fill='%23d29922'/%3E%3Crect x='6' y='17' width='9' height='9' rx='1.5' fill='%2358a6ff'/%3E%3Crect x='17' y='17' width='9' height='9' rx='1.5' fill='%233fb950'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Freddrick Logan">
+<meta property="og:title" content="Enterprise Operating Model Kit — heat-map, RACI, OKR cascade">
+<meta property="og:description" content="Capability heat-map, generated RACI and verified OKR cascade for the first ninety days — diagnostics, not slides.">
+<meta property="og:url" content="https://freddricklogan.github.io/enterprise-operating-model-kit/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Enterprise Operating Model Kit — heat-map, RACI, OKR cascade">
+<meta name="twitter:description" content="Capability heat-map, generated RACI and verified OKR cascade for the first ninety days — diagnostics, not slides.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Enterprise Operating Model Kit","description":"Capability heat-map, generated RACI and verified OKR cascade, with a ninety-day playbook. Client-side; sample data.","url":"https://freddricklogan.github.io/enterprise-operating-model-kit/","applicationCategory":"BusinessApplication","operatingSystem":"Any (Web)","author":{"@type":"Person","name":"Freddrick Logan","url":"https://fredlogan.phd"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<main id="demo-root" class="exec-main">
+  <h2 class="sr-only">Operating-model diagnostics</h2>
+  <p id="status" class="eom-statusbar" role="status" aria-live="polite"></p>
+  <div class="eom-top">
+    <strong id="model-name">—</strong>
+    <div class="eom-tools">
+      <button type="button" class="eom-btn eom-btn--primary" id="btn-export">Export JSON</button>
+      <button type="button" class="eom-btn" id="btn-import">Import JSON</button>
+      <button type="button" class="eom-btn" id="btn-print">Print</button>
+      <button type="button" class="eom-btn" id="btn-reset">Reset to sample</button>
+      <input type="file" id="file-import" accept="application/json,.json" class="sr-only" tabindex="-1" aria-label="Operating model JSON file">
+    </div>
+  </div>
+
+  <section class="eom-panel" aria-labelledby="heat-heading">
+    <h3 id="heat-heading">Capability heat-map</h3>
+    <p class="eom-hint">Shade is current maturity; the left edge is the band. Critical: importance ≥ 4 and two or more levels short of target. Priority = importance × gap. Edit any score.</p>
+    <div class="eom-heatmap" id="heatmap"></div>
+  </section>
+
+  <div class="eom-two">
+    <section class="eom-panel" aria-labelledby="dom-heading">
+      <h3 id="dom-heading">By domain</h3>
+      <div class="eom-scroll"><table class="eom-table" id="domains"></table></div>
+    </section>
+    <section class="eom-panel" id="priorities-panel" aria-labelledby="pri-heading">
+      <h3 id="pri-heading">First five moves</h3>
+      <p class="eom-hint">Capabilities with the largest importance × gap.</p>
+      <ol class="eom-list" id="priorities"></ol>
+    </section>
+  </div>
+
+  <section class="eom-panel" aria-labelledby="raci-heading">
+    <h3 id="raci-heading">RACI — generated from decision rights</h3>
+    <p class="eom-hint">Decide → A · recommend → R · input → C · informed → I. Each decision needs exactly one decider and at least one recommender; violations are listed.</p>
+    <div class="eom-scroll"><table class="eom-table" id="raci"></table></div>
+    <h4 class="sr-only" id="raci-problems-heading">RACI findings</h4>
+    <ul class="eom-findings" id="raci-problems" aria-labelledby="raci-problems-heading"></ul>
+    <h4 class="eom-sub" id="raci-load-heading">Load per role</h4>
+    <ul class="eom-load" id="raci-load" aria-labelledby="raci-load-heading"></ul>
+  </section>
+
+  <section class="eom-panel" aria-labelledby="okr-heading">
+    <h3 id="okr-heading">OKR cascade</h3>
+    <p class="eom-hint">Enterprise → division → team. Progress is direction-aware and averaged over key results. Objectives that contribute to nothing, or carry no key result, are listed.</p>
+    <ul class="eom-tree" id="cascade"></ul>
+    <h4 class="sr-only" id="cascade-findings-heading">Cascade findings</h4>
+    <ul class="eom-findings" id="cascade-findings" aria-labelledby="cascade-findings-heading"></ul>
+  </section>
+
+  <section class="eom-panel" aria-labelledby="play-heading">
+    <h3 id="play-heading">Ninety-day playbook</h3>
+    <p class="eom-hint">How the three instruments are used together, in order.</p>
+    <div class="eom-play">
+      <div><h4>Days 1–30 · Diagnose</h4><ol><li>List the capabilities the strategy depends on; score importance, maturity and target with the people who run them.</li><li>List the decisions that matter; record who decides, recommends, gives input and is informed — from practice, not the org chart.</li><li>Collect the objectives every unit already has.</li></ol></div>
+      <div><h4>Days 31–60 · Decide</h4><ol><li>Take the top five capability gaps to the leadership team and fund at most three.</li><li>Fix every RACI finding: one decider per decision, a named recommender.</li><li>Rebuild the cascade so every objective contributes upward and carries a key result; retire the rest.</li></ol></div>
+      <div><h4>Days 61–90 · Operate</h4><ol><li>Re-score maturity monthly; the heat-map becomes a trend.</li><li>Publish the RACI; refer to it in every escalation.</li><li>Review key results monthly, cascade alignment quarterly.</li></ol></div>
+    </div>
+  </section>
+</main>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
