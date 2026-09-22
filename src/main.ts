@@ -55,6 +55,7 @@ $('btn-reset').addEventListener('click', () => { state.model = sample(); setStat
 $('btn-print').addEventListener('click', () => window.print());
 
 const shell = mountExecShell({
+  theme: 'midnight',
   title: 'Enterprise Operating Model Kit',
   tagline: 'Three instruments for the first ninety days — a capability heat-map scored on importance, maturity and target; a RACI chart generated from decision rights and checked; and an OKR cascade whose alignment is verified rather than assumed. With the playbook below. Sample organisation; illustrative.',
   repo: REPO, pagesUrl: PAGES,
