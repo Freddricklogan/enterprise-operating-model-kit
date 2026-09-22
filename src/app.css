@@ -7,7 +7,7 @@ td[data-tone], .eom-obj__prog[data-tone] { color: var(--tone); font-weight: 600;
 .eom-tools { display: flex; gap: 8px; flex-wrap: wrap; }
 .eom-btn { padding: 7px 12px; background: var(--panel-2); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font: inherit; font-size: .8rem; cursor: pointer; }
 .eom-btn:hover { background: var(--border); }
-.eom-btn--primary { background: var(--accent); border-color: var(--accent); color: #07101f; font-weight: 600; }
+.eom-btn--primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
 .eom-panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; }
 .eom-panel h3 { margin: 0 0 4px; font-size: 1rem; }
 .eom-hint { margin: 0 0 12px; font-size: .8rem; color: var(--muted); }
@@ -35,8 +35,8 @@ td[data-tone], .eom-obj__prog[data-tone] { color: var(--tone); font-weight: 600;
 tr.is-invalid th { color: var(--danger); }
 .eom-list { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; font-size: .82rem; }
 .eom-raci { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 6px; font-weight: 800; font-size: .74rem; background: var(--panel-2); }
-.eom-raci[data-letter='A'] { background: color-mix(in srgb, var(--warn) 25%, transparent); color: var(--warn); }
-.eom-raci[data-letter='R'] { background: color-mix(in srgb, var(--accent) 25%, transparent); color: var(--accent); }
+.eom-raci[data-letter='A'] { background: color-mix(in srgb, var(--warn) 14%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--warn) 65%, transparent); }
+.eom-raci[data-letter='R'] { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--accent) 65%, transparent); }
 .eom-raci[data-letter='C'] { background: color-mix(in srgb, var(--ok) 20%, transparent); color: var(--ok); }
 .eom-raci[data-letter='I'] { color: var(--muted); }
 .eom-findings { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; font-size: .8rem; }
